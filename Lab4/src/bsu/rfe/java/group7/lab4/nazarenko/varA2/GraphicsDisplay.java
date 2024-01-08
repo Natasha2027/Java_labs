@@ -143,15 +143,11 @@ public class GraphicsDisplay extends JPanel {
 	    for (Double[] point : graphicsData) {
 	    	int ram = point[1].intValue();
 	    	
-	    	
 	    	if((point[1] >= ( (double) ram ) - 0.1 ) && ( point[1] <= ( (double) ram ) + 0.1 ))
 	    		canvas.setPaint(Color.GREEN);
 		    else
-		    	canvas.setPaint(Color.BLACK);
-		    
-		    
-		    
-		    
+		    	canvas.setPaint(Color.BLACK); 
+	    	
 	        Point2D.Double center = xyToPoint(point[0], point[1]);
 	        drawCustomMarker(canvas, center);
 	    }
@@ -199,6 +195,19 @@ public class GraphicsDisplay extends JPanel {
 			canvas.drawString("x", (float)(labelPos.getX() -
 			bounds.getWidth() - 10), (float)(labelPos.getY() + bounds.getY()));
 		}
+		if (minX <= 0.0 && maxX >= 0.0 && minY <= 0.0 && maxY >= 0.0) {
+	        Point2D.Double zeroPoint = xyToPoint(0, 0);
+	        
+	        // Рисуем маркер или круг в точке пересечения
+	        int markerSize = 5;
+	        canvas.setColor(Color.RED); // Цвет маркера (можно выбрать любой)
+	        canvas.fillOval((int) zeroPoint.getX() - markerSize / 2,
+	                        (int) zeroPoint.getY() - markerSize / 2,	
+	                        markerSize, markerSize);
+	        
+	        // Дополнительно можно написать значение 0 рядом с точкой
+	        canvas.setColor(Color.BLACK); // Цвет текста (можно выбрать любой)
+	        canvas.drawString("0", (float) zeroPoint.getX() + 3, (float) zeroPoint.getY() - 3); }
 	}
 
 	protected Point2D.Double xyToPoint(double x, double y) {
