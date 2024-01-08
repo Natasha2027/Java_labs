@@ -19,16 +19,24 @@ public class Product {
             itemsSoFar++;
         }
 
-        int Pie_CHERRY = 0;
-        Pie pie_CHERRY = new Pie("Cherry");
-        for (Food pie : breakfast) {
-            if (pie instanceof Pie) {
-                if ((pie).equals(pie_CHERRY))
-                    Pie_CHERRY++;
+        int counterApple = 0;
+        int counterCheese = 0;
+        int counterPie = 0;
+        for (Food food : breakfast) {
+            if (food instanceof Apple) {
+            	counterApple++;
+            } else
+            if (food instanceof Cheese) {
+            	counterCheese++;
+            } else
+            if (food instanceof Pie) {
+            	counterPie++;
             }
         }
-        System.out.println("Количество " + pie_CHERRY + " всего " + Pie_CHERRY);
-
+        System.out.println("Количество яблок всего " + counterApple);
+        System.out.println("Количество сыров всего " + counterCheese);
+        System.out.println("Количество пирогов всего " + counterPie);
+        
         for (Food item: breakfast)
             if (item!=null)
                 item.consume();
