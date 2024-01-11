@@ -19,14 +19,6 @@ public class Cheese extends Food {
         this.type = type;
     }
 
-    public boolean equals(Object arg0) {
-        if (super.equals(arg0)) {
-            if (!(arg0 instanceof Cheese)) return false;
-            return type.equals(((Cheese)arg0).type);
-        } else
-            return false;
-    }
-
     public String toString() {
         return super.toString() + " типа '" + type.toUpperCase() + "'";
     }
