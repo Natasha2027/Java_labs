@@ -23,15 +23,17 @@ public class Product {
         int counterCheese = 0;
         int counterPie = 0;
         for (Food food : breakfast) {
-            if (food instanceof Apple) {
-            	counterApple++;
-            } else
-            if (food instanceof Cheese) {
-            	counterCheese++;
-            } else
-            if (food instanceof Pie) {
-            	counterPie++;
-            }
+        	if (food != null) {
+	            if ((food).equals(new Apple("Test"))) {
+	            	counterApple++;
+	            } else
+	            if ((food).equals(new Cheese("Test"))) {
+	            	counterCheese++;
+	            } else
+	            if ((food).equals(new Pie("Test"))) {
+	            	counterPie++;
+	            }
+        	}
         }
         System.out.println("Количество яблок всего " + counterApple);
         System.out.println("Количество сыров всего " + counterCheese);
